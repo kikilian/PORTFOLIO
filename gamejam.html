@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ghost Hunter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      color: #eee;
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Menu ── */
+    #menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 300px;
+    }
+
+    #menu h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    #menu .subtitle {
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .menu-btn {
+      background: #1a1a1a;
+      color: #ccc;
+      border: 1px solid #2a2a2a;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      padding: 14px 16px;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.1s, color 0.1s;
+    }
+
+    .menu-btn:hover {
+      border-color: #001aff;
+      color: #fff;
+    }
+
+    .menu-btn .label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .menu-btn .desc {
+      font-size: 11px;
+      color: #444;
+    }
+
+    .menu-btn:hover .desc { color: #777; }
+
+    /* ── Jeu ── */
+    canvas { display: block; border: 1px solid #222; }
+
+    #canvas-wrap {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #info {
+      color: #444;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="menu">
+    <h1>       PACMAN</h1><H1>2.0</H1>
+    <p class="subtitle"></p>
+
+    <button class="menu-btn" onclick="startGame('solo')">
+      <span class="label">1 Joueur</span>
+      <span class="desc">Cette fois ci tu contrôle le fantôme et ton rôle est de chasser pacman avant qu'il n'atteigne les 100 points.
+        Si il les atteints, essaye de survivre en mangeant les boules restantes.
+         </span>
+    </button>
+
+    <button class="menu-btn" onclick="startGame('duo')">
+      <span class="label">2 joueurs</span>
+      <span class="desc">Pacman (ZQSD) - Fantôme (flèches)</span>
+    </button>
+  </div>
+
+  <div id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+    <div id="info"></div>
+  </div>
+
+  <script src="game.js"></script>
+
+</body>
+</html>
